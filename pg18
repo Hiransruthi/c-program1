@@ -1,0 +1,14 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int x,x1,a,b,c;
+    printf("enter 3 digit the number: ");
+    scanf("%d",&x);
+    a=x%10;
+    b=x/10;
+    c=b/10;
+    x1=x-5*(a%2 && c%2);
+    printf("answer: %d",x1);
+    return 0;
+}
