@@ -1,0 +1,15 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+ int x,y=0,z,a,b;
+ for (x=70;x<80;x++)
+ {
+ if (x%2!=0)
+        y=y+x;
+ }
+ printf("sum: %d",y);
+ 
+    return 0;
+ 
+}
