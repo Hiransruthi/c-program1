@@ -1,0 +1,29 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int x,a=0,c=0,ip,i,b,d;
+    printf("enter the number:");
+    scanf("%d",&ip);
+    x=ip;
+    while(x>0)
+    {
+        x=x/10;
+        c=c+1;
+    }
+    printf("%d\n",c);
+   x=ip;
+   a=x/pow(10,(c-1));
+   if (a%2==0)
+   {
+   printf("the reg num : %d",x);
+   }
+   else
+   {
+       a=a-1;
+       b=(a*pow(10,(c-1)))+(x%(int)pow(10,(c-1)));
+       printf("the req num is : %d",b);
+   }
+   return 0;
+}
