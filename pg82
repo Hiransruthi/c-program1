@@ -1,0 +1,58 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int x,a,flag=1,ip,c=0,i,h,sum=0;
+    printf("enter the num: ");
+    scanf("%d",&ip);
+    x=ip;
+    if(x<=1)
+    {
+        flag =0;
+    }
+    else
+    {
+        for (a=2;a<x;a++)
+        {
+            if(x%a==0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+    }
+    if(flag == 1)
+    printf("%d is  prime \n",x);
+    else
+    printf("%d is not prime \n",x);
+    //sum
+    x=ip;
+    while(x>0)
+    {
+        x=x/10;
+        c=c+1;
+    }
+    printf("count: %d\n",c);
+    x=ip;
+    for (i=1;i<c;i++)
+    {
+        h=x%10;
+        sum=sum+h;
+        x=x/10;
+    }
+    printf("sum : %d\n",sum+x);
+    //if(sum==14)
+    //printf("the sum is 14");
+    //else
+    //printf("the sum is not 14");
+    if(flag==1 && sum==14)
+    printf("the num is prime and the sum is 14");
+    else if(flag==1 && sum!=14)
+    printf("the num is prime and the sum is not 14");
+    else if(flag!=1 && sum==14)
+    printf("the num is not prime but the sum is 14");
+    else
+    printf("the sum is not prime and sum is not 14");
+    
+   return 0;
+}
