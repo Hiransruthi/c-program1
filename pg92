@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int i, j, count = 0, flag,a;
+    printf("enter a num: ");
+    scanf("%d",&a);
+    i=a%10;
+
+   while(0<i<10)
+    {
+        flag = 1;
+
+        for(j = 2; j < i; j++)
+        {
+            if(i % j == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag == 1)
+        {
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
