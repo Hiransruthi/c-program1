@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main()
+{ 
+    int x=10,sum=0;
+    while(x<100)
+    {
+      if(x%10==5)
+      sum=sum+x;
+      x=x+1;
+    }
+    printf("sum of digits is : %d",sum);
+    return 0;
+}
