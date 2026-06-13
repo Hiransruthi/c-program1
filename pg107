@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{ 
+    int x,c=0,a,ip,b,d,e,f,g,h;
+    printf("enter the number: ");
+    scanf("%d",&ip);
+    x=ip;
+    while(x>0)
+    {
+           a=x%10;
+           c=c+1;
+           x=x/10;
+    }
+    printf("%d\n",c);
+    x=ip;
+    b=x%10;
+    d=b*pow(10,(c-1));
+    e=x%(int)pow(10,(c-1));
+    f=x/(int)pow(10,(c-1));
+    g=e-b;
+    printf("%d\n",d+g+f);
+    return 0;
+}
