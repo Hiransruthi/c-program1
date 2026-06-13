@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{ 
+    int x,c=0,a,ip,b,d,e,f,g,h;
+    printf("enter the number: ");
+    scanf("%d",&ip);
+    x=ip;
+    while(x>0)
+    {
+           a=x%10;
+           c=c+1;
+           x=x/10;
+    }
+    //printf("%d\n",c);
+    x=ip;
+    d=x%(int)pow(10,(c-1));
+    b=x/(int)pow(10,(c-1));
+    {
+    if (b%2==0)
+        printf("%d is the answer",x);
+    else
+    {
+        b=b-1;
+        h=b*pow(10,(c-1));
+        e=h+d;
+        printf("%d is the answer",e);
+    }
+    }
+    return 0;
+}
