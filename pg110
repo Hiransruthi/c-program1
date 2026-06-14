@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i, flag = 1,a,sum=0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n <= 1)
+    {
+        flag = 0;
+    }
+    else
+    {
+        for (i = 2; i < n; i++)
+        {
+            if (n % i == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+    }
+    while(n>0)
+    {
+        a=n%10;
+        sum=sum+a;
+        n=n/10;
+    }
+    
+
+    if (flag == 1 && sum==14 )
+        printf(" Prime Number and sum=14");
+    else if(flag==1 && sum!=14)
+        printf(" Prime Number and sum != 14");
+   else if(flag!=1 && sum==14)
+         printf("not a prime number and sum=14");
+    else
+       printf("not a prime number and sum!=14");
+
+    return 0;
+}
