@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int check_prime();
+
+int main()
+{
+    //int ip;
+
+    //printf("Enter a number: ");
+    //scanf("%d", &ip);
+
+    check_prime();
+
+    return 0;
+}
+
+int check_prime()
+{
+    int i, flag = 0,ip,sum=0,b,x;
+    printf("enter the number :");
+    scanf("%d",&ip);
+    x=ip;
+    if (ip <= 1)
+    {
+        printf("%d is not a prime number", ip);
+        return 0;
+    }
+
+    for (i = 2; i < ip; i++)
+    {
+        if (ip % i == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    while(ip>0)
+    {
+        b=ip%10;
+        sum=sum+b;
+        ip=ip/10;
+    }
+    //printf("%d\n",sum);
+    x=ip;
+    if (flag == 0 && sum==14)
+        printf(" prime number and sum=14");
+    else if(flag==0 && sum!=14)
+        printf("prime number and sum is not 14");
+    else if(flag==1 && sum==14)
+        printf(" not prime but sum=14");
+    else
+        printf("not prime and sum is not equal to 14");
+
+    return 0;
+}
