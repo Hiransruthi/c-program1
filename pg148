@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int disp_single_digit_square();
+
+int main()
+{
+    disp_single_digit_square();
+    return 0;
+}
+
+int disp_single_digit_square()
+{
+    int i, a, b, c = 0, flag;
+
+    printf("Enter the number: ");
+    scanf("%d", &i);
+
+    while(i > 0)
+    {
+        a = i % 10;
+        flag = 0;
+
+        if(a > 1)
+        {
+            for(b = 2; b < a; b++)
+            {
+                if(a % b == 0)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+
+            if(flag == 0)
+                c++;
+        }
+
+        i = i / 10;
+    }
+
+    printf("Total prime digits = %d", c);
+
+    return 0;
+}
