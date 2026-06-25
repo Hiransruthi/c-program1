@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int check_prime();
+
+int main()
+{
+    //int ip;
+    //printf("Enter a number: ");
+    //scanf("%d", &ip);
+
+    check_prime();
+
+    return 0;
+}
+
+int check_prime()
+{
+    int i;
+    for(i=1;i<10;i++)
+    {
+        if(i==3 || i==5 || i==7 ||i==1)
+        printf("%d\n",i);
+    }
+    return 0;
+}
