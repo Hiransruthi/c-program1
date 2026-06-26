@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int disp_HCF2();
+
+int main()
+{
+    disp_HCF2();
+    return 0;
+}
+
+int disp_HCF2()
+{
+    int a,b,c,hcf,min;
+    printf("enter the 2 numbers: ");
+    scanf("%d %d",&a,&b);
+    min=(a<b)?a:b;
+    for(hcf=min;hcf;hcf--)
+    {
+        if(a%hcf==0 && b%hcf==0)
+        {
+            printf("hcf= %d",hcf);
+            break;
+        }
+        //lcm++;
+    }
+   return 0;
+}
