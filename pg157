@@ -1,0 +1,24 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int disp_sum();
+int main()
+{
+    int x;
+    x=disp_sum();
+    printf("the sum is %d",x);
+    return 0;
+}
+int disp_sum()
+{
+    int sum=0,a;
+    for(a=10;a<100;a++)
+    {
+        if(a%10==5)
+        {
+            sum=sum+a;
+        }
+    }
+    return (sum);
+}
+//printf("%d is the sum",sum);
