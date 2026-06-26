@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int disp_LCM2();
+
+int main()
+{
+    disp_LCM2();
+    return 0;
+}
+
+int disp_LCM2()
+{
+    int a,b,c,lcm;
+    printf("enter the 2 numbers: ");
+    scanf("%d %d",&a,&b);
+    //lcm=(a>b)?a:b;
+    for(lcm=1;lcm<=(a*b);lcm++)
+    {
+        if(lcm%a==0 && lcm%b==0)
+        {
+            printf("lcm= %d",lcm);
+            break;
+        }
+        //lcm++;
+    }
+   return 0;
+}
