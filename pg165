@@ -1,0 +1,28 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int disp_2digit_even_sum6();
+int main()
+{
+    int x;
+    x=disp_2digit_even_sum6();
+    printf("the required numebr  is %d",x);
+    return 0;
+}
+int disp_2digit_even_sum6()
+{
+    int a,c=0;
+    printf("enter the number: ");
+    scanf("%d",&a);
+    while(a>0)
+    {
+        if(a%2!=0)
+        {
+            c=c+1;
+        }
+        a=a/10;
+    }
+    
+    return (c);
+}
