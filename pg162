@@ -1,0 +1,33 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int disp_interchange_first_last_digit();
+int main()
+{
+    int x;
+    x=disp_interchange_first_last_digit();
+    printf("the reverse numebr  is %d",x);
+    return 0;
+}
+int disp_interchange_first_last_digit()
+{
+    int c=0,a,b,sum=0,d,ip,e,f,g,h;
+    printf("enter the number: ");
+    scanf("%d",&ip);
+    a=ip;
+    while(a>0)
+    {
+        b=a%10;
+        c=c+1;
+        a=a/10;
+    }
+    a=ip;
+    d=(a%10)*pow(10,(c-1));
+    e=a/10;
+    f=(e%(int)pow(10,(c-2)))*10;
+    g=(a/pow(10,(c-1)));
+    h=d+f+g;
+    
+return (h);
+}
