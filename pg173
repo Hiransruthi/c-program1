@@ -1,0 +1,25 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int disp_count_sum14();
+int main()
+{
+    int x;
+    x=disp_count_sum14();
+    printf("LCM = %d",x);
+    return 0;
+}
+int disp_count_sum14()
+{
+    int a,b,c,lcm;
+    printf("enter the 2 numbers: ");
+    scanf("%d %d %d",&a,&b,&c);
+    for(lcm=1;lcm<(a*b*c);lcm++)
+    {
+        if(lcm%a==0 && lcm%b==0 && lcm%c==0)
+        break;
+        
+    }
+    return (lcm);
+}
