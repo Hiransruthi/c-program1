@@ -1,0 +1,26 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int disp_2digit_HCF();
+int main()
+{
+    int x;
+    x=disp_2digit_HCF();
+    printf("HCF = %d",x);
+    return 0;
+}
+int disp_2digit_HCF()
+{
+    int a,b,c,hcf,min;
+    printf("enter the 2 numbers: ");
+    scanf("%d %d",&a,&b);
+    min=(a<b)?a:b;
+    for(hcf=min;hcf;hcf--)
+    {
+        if(a%hcf==0 && b%hcf==0)
+        break;
+        
+    }
+    return (hcf);
+}
