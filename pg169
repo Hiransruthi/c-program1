@@ -1,0 +1,29 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int disp_single_digit_prime();
+int main()
+{
+    int x;
+    x=disp_single_digit_prime();
+    printf("count = %d",x);
+    return 0;
+}
+int disp_single_digit_prime()
+{
+    int a,c=0,b,i;
+    printf("enter the number: ");
+    scanf("%d",&a);
+    while(a>0)
+    {
+        b=a%10;
+        if (b==3 || b==5 || b==7 ||b==2)
+        {
+          c=c+1;
+        }
+        a=a/10;
+    }
+    
+    return (c);
+}
