@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    char str[51];
+    int arr[50];
+    int i, length = 0;
+
+    printf("Enter a number (up to 50 digits): ");
+    scanf("%50s", str);
+
+    // Find length of string
+    while (str[length] != '\0')
+    {
+        length++;
+    }
+
+    // Convert each character into an integer
+    for (i = 0; i < length; i++)
+    {
+        arr[i] = str[i] - '0';
+    }
+
+    // Display integer array
+    printf("Integer array: ");
+
+    for (i = 0; i < length; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
