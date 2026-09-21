@@ -1,0 +1,198 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student
+{
+    int id;
+    int maths;
+    int science;
+    struct student *next;
+};
+
+/* Create a new node */
+struct student* create_node(int id, int maths, int science)
+{
+    struct student *newnode;
+
+    newnode = (struct student*)malloc(sizeof(struct student));
+
+    newnode->id = id;
+    newnode->maths = maths;
+    newnode->science = science;
+    newnode->next = NULL;
+
+    return newnode;
+}
+
+/* Display the linked list */
+void display(struct student *head)
+{
+    struct student *temp = head;
+
+    printf("\nStudent Details:\n");
+
+    while(temp != NULL)
+    {
+        printf("ID: %d  Maths: %d  Science: %d\n",
+               temp->id, temp->maths, temp->science);
+
+        temp = temp->next;
+    }
+}
+
+/* Insert before a given ID */
+void insert_before(struct student **head, int given_id,
+                   int id, int maths, int science)
+{
+    struct student *newnode;
+    struct student *temp;
+
+    newnode = create_node(id, maths, science);
+
+    /* Insert before first node */
+    if(*head != NULL && (*head)->id == given_id)
+    {
+        newnode->next = *head;
+        *head = newnode;
+        return;
+    }
+
+    temp = *head;
+
+    while(temp != NULL && temp->next != NULL)
+    {
+        if(temp->next->id == given_id)
+        {
+            newnode->next = temp->next;
+            temp->next = newnode;
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+    printf("ID %d not found.\n", given_id);
+    free(newnode);
+}
+
+/* Insert after a given ID */
+void insert_after(struct student *head, int given_id,
+                  int id, int maths, int science)
+{
+    struct student *temp = head;
+    struct student *newnode;
+
+    while(temp != NULL)
+    {
+        if(temp->id == given_id)
+        {
+            newnode = create_node(id, maths, science);
+
+            newnode->next = temp->next;
+            temp->next = newnode;
+
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+    printf("ID %d not found.\n", given_id);
+}
+
+int main()
+{
+    struct student *head = NULL;
+    struct student *temp;
+
+    int choice;
+    int position;
+    int given_id;
+    int id, maths, science;
+
+    /* Create sample linked list with 5 entries */
+
+    head = create_node(101, 85, 90);
+
+    head->next = create_node(102, 78, 88);
+
+    head->next->next = create_node(103, 92, 95);
+
+    head->next->next->next = create_node(104, 75, 80);
+
+    head->next->next->next->next = create_node(105, 89, 91);
+
+    while(1)
+    {
+        printf("\n===== MENU =====\n");
+        printf("1. Insert Entry\n");
+        printf("2. Display List\n");
+        printf("3. Exit\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+
+                printf("\nEnter new ID: ");
+                scanf("%d", &id);
+
+                printf("Enter Maths mark: ");
+                scanf("%d", &maths);
+
+                printf("Enter Science mark: ");
+                scanf("%d", &science);
+
+                printf("Enter the ID relative to which to insert: ");
+                scanf("%d", &given_id);
+
+                printf("1. Insert Before\n");
+                printf("2. Insert After\n");
+                printf("Enter position: ");
+                scanf("%d", &position);
+
+                if(position == 1)
+                {
+                    insert_before(&head, given_id,
+                                  id, maths, science);
+                }
+                else if(position == 2)
+                {
+                    insert_after(head, given_id,
+                                 id, maths, science);
+                }
+                else
+                {
+                    printf("Invalid position.\n");
+                }
+
+                break;
+
+            case 2:
+                display(head);
+                break;
+
+            case 3:
+                printf("Exiting...\n");
+
+                /* Free memory */
+                temp = head;
+
+                while(temp != NULL)
+                {
+                    struct student *next = temp->next;
+                    free(temp);
+                    temp = next;
+                }
+
+                return 0;
+
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+
+    return 0;
+}
