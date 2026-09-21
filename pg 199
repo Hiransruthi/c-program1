@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    char num[51];
+    int i = 0;
+
+    printf("Enter a number (up to 50 digits): ");
+    scanf("%50s", num);
+
+    // Find the first non-zero digit
+    while (num[i] == '0')
+    {
+        i++;
+    }
+
+    // If all digits are zero
+    if (num[i] == '\0')
+    {
+        printf("0");
+    }
+    else
+    {
+        printf("Number after removing leading zeros: %s", &num[i]);
+    }
+
+    return 0;
+}
