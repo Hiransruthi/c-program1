@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int strcomp(char src[], char dst[])
+{
+    int i = 0;
+
+    while(src[i] != '\0' || dst[i] != '\0')
+    {
+        if(src[i] != dst[i])
+        {
+            return 0;   // Failure
+        }
+
+        i++;
+    }
+
+    return 1;           // Success
+}
+
+int main()
+{
+    char src[50] = "Hello";
+    char dst[50] = "Hello";
+
+    if(strcomp(src, dst))
+    {
+        printf("Success\n");
+    }
+    else
+    {
+        printf("Failure\n");
+    }
+
+    return 0;
+}
