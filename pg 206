@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+void find_2digit_odd_sum7(int arr[], int *count)
+{
+    int i;
+
+    *count = 0;
+
+    for(i = 10; i <= 99; i++)
+    {
+        if(i % 2 != 0)
+        {
+            if((i / 10) + (i % 10) == 7)
+            {
+                arr[*count] = i;
+                (*count)++;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int arr[10];
+    int count, i;
+
+    find_2digit_odd_sum7(arr, &count);
+
+    printf("Two digit odd numbers whose digit sum is 7:\n");
+
+    for(i = 0; i < count; i++)
+    {
+        printf("%d\n", arr[i]);
+    }
+
+    return 0;
+}
