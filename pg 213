@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char num1[51], num2[51], result[52];
+    char *p1, *p2, *p3;
+    int len1, len2;
+    int carry = 0, sum;
+    int digit1, digit2;
+
+    printf("Enter first number: ");
+    scanf("%50s", num1);
+
+    printf("Enter second number: ");
+    scanf("%50s", num2);
+
+    len1 = strlen(num1);
+    len2 = strlen(num2);
+
+    p1 = num1 + len1 - 1;
+    p2 = num2 + len2 - 1;
+    p3 = result;
+
+    while(p1 >= num1 || p2 >= num2 || carry)
+    {
+        digit1 = 0;
+        digit2 = 0;
+
+        if(p1 >= num1)
+        {
+            digit1 = *p1 - '0';
+            p1--;
+        }
+
+        if(p2 >= num2)
+        {
+            digit2 = *p2 - '0';
+            p2--;
+        }
+
+        sum = digit1 + digit2 + carry;
+
+        *p3 = (sum % 10) + '0';
+        p3++;
+
+        carry = sum / 10;
+    }
+
+    *p3 = '\0';
+
+    // Reverse the result
+    p3--;
+
+    {
+        char *start = result;
+        char temp;
+
+        while(start < p3)
+        {
+            temp = *start;
+            *start = *p3;
+            *p3 = temp;
+
+            start++;
+            p3--;
+        }
+    }
+
+    printf("Result = %s\n", result);
+
+    return 0;
+}
