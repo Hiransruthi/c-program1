@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10];
+    int i;
+
+    printf("Enter 5 numbers:\n");
+
+    for(i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    /* Adjust carry */
+    for(i = 0; i < 4; i++)
+    {
+        a[i + 1] = a[i + 1] + a[i] / 10;
+        a[i] = a[i] % 10;
+    }
+
+    /* Adjust the last element */
+    a[4] = a[4] % 10;
+
+    printf("Array after adjusting carry:\n");
+
+    for(i = 0; i < 5; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
