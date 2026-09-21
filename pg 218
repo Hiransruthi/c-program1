@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student
+{
+    int id;
+    int maths;
+    int science;
+    struct student *next;
+};
+
+int main()
+{
+    struct student *head = NULL;
+    struct student *newnode;
+    struct student *temp;
+
+    while(1)
+    {
+        newnode = (struct student *)malloc(sizeof(struct student));
+
+        printf("Enter ID (-1 to stop): ");
+        scanf("%d", &newnode->id);
+
+        if(newnode->id == -1)
+        {
+            free(newnode);
+            break;
+        }
+
+        printf("Enter Maths mark: ");
+        scanf("%d", &newnode->maths);
+
+        printf("Enter Science mark: ");
+        scanf("%d", &newnode->science);
+
+        newnode->next = NULL;
+
+        /* Add node to the end of the list */
+        if(head == NULL)
+        {
+            head = newnode;
+        }
+        else
+        {
+            temp = head;
+
+            while(temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+
+            temp->next = newnode;
+        }
+    }
+
+    /* Display all entries */
+    printf("\nStudent Details:\n");
+
+    temp = head;
+
+    while(temp != NULL)
+    {
+        printf("ID      : %d\n", temp->id);
+        printf("Maths   : %d\n", temp->maths);
+        printf("Science : %d\n", temp->science);
+        printf("\n");
+
+        temp = temp->next;
+    }
+
+    return 0;
+}
